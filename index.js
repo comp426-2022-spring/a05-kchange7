@@ -84,19 +84,15 @@ app.get('/app/flip/', (req, res) => {
     res.json({ "flip": flip });
 });
 
-app.get('/app/flips/:number', (req, res) => {
-    const flips = coinFlips(req.params.number);
-    const summary = countFlips(flips);
-
-    res.statusCode = 200;
-    res.json({ "raw": flips, "summary": summary })
+app.post('/app/flips/coins', (req, res, next) => {
+    const flips = coinFlips(req.body.number);
+    const count = countFlips(flips);
+    res.status(200).json({"raw": flips, "summary": count})
 });
 
-app.get('/app/flip/call/:call', (req, res) => {
-    const result = flipACoin(req.params.call);
-
-    res.statusCode = 200;
-    res.json(result);
+app.post('/app/flip/call/', (req, res, next) => {
+    const result = flipACoin(req.body.call);
+    res.status(200).json(result);
 });
 
 if (debug != "false") {
