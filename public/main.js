@@ -33,6 +33,11 @@ async function multiFlip(number) {
   };
   const response = await fetch('http://localhost:5555/app/flip/coins', requestOptions);
   let resp = await response.json();
-  console.log(resp);
+  const headsVal = resp.summary.heads;
+  const tailsVal = resp.summary.tails;
+  document.getElementById("heads-bar").style.height = `${20*headsVal}px`;
+  document.getElementById("tails-bar").style.height = `${20*tailsVal}px`;
+  document.getElementById("multi-summary").innerText = `Summary: Heads-${headsVal}    Tails-${tailsVal}`;
+  document.getElementById("multi-results").classList.remove("hidden");
 }
 // Guess a flip by clicking either heads or tails button

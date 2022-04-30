@@ -45,6 +45,16 @@
     </div>
     <div id="multi" class="hidden">
       <h2>Multi-Coin Flip</h2>
+      <h4>Press the button below to flip many coins and see the result</h4>
+      <button id="flip-single" onclick="multiFlip(20)">Flip 20 Coins</button>
+      <div id="multi-results" class="hidden">
+        <h4>Results:</h4>
+        <div class="graph">
+          <div id="heads-bar" class="bar heads">H</div>
+          <div id="tails-bar" class="bar tails">T</div>
+        </div>
+        <h4 id="multi-summary">Summary: </h4>
+      </div>
     </div>
     <div id="guess" class="hidden">
       <h2>Guess a Flip</h2>
