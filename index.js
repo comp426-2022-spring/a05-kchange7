@@ -99,7 +99,7 @@ app.get('/app/flip/call/:guess', (req, res) => {
     res.json(result);
 });
 
-app.post('/app/flips/coins', (req, res, next) => {
+app.post('/app/flip/coins', (req, res, next) => {
     const flips = coinFlips(req.body.number);
     const count = countFlips(flips);
     res.status(200).json({"raw": flips, "summary": count})
