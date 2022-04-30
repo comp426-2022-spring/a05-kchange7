@@ -78,10 +78,25 @@ app.get('/app/', (req, res) => {
     res.end(res.statusCode + ' ' + res.statusMessage);
 });
 
-app.get('/app/flip/', (req, res) => {
+app.get('/app/flip', (req, res) => {
     const flip = coinFlip();
     res.statusCode = 200;
     res.json({ "flip": flip });
+});
+
+app.get('/app/flips/:number', (req, res) => {
+    const flips = coinFlips(req.params.number);
+    const summary = countFlips(flips);
+
+    res.statusCode = 200;
+    res.json({ "raw": flips, "summary": summary })
+});
+
+app.get('/app/flip/call/:guess', (req, res) => {
+    const result = flipACoin(req.params.guess);
+
+    res.statusCode = 200;
+    res.json(result);
 });
 
 app.post('/app/flips/coins', (req, res, next) => {
@@ -90,7 +105,7 @@ app.post('/app/flips/coins', (req, res, next) => {
     res.status(200).json({"raw": flips, "summary": count})
 });
 
-app.post('/app/flip/call/', (req, res, next) => {
+app.post('/app/flip/call', (req, res, next) => {
     const result = flipACoin(req.body.call);
     res.status(200).json(result);
 });
