@@ -25,5 +25,14 @@ async function singleFlip() {
 }
 // Flip multiple coins and show coin images in table as well as summary results
 // Enter number and press button to activate coin flip series
-
+async function multiFlip(number) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ number: number })
+  };
+  const response = await fetch('http://localhost:5555/app/flip/coins', requestOptions);
+  let resp = await response.json();
+  console.log(resp);
+}
 // Guess a flip by clicking either heads or tails button
