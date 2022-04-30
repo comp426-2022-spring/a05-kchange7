@@ -12,6 +12,8 @@ function changeFocus(button) {
   }
   currentFocus = divID;
 }
+
+
 // Flip one coin and show coin image to match result when button clicked
 async function singleFlip() {
   const requestOptions = {
@@ -23,6 +25,8 @@ async function singleFlip() {
   console.log(`Flip Result: ${resp.flip}`);
   document.getElementById("single-flip-result").src = `./assets/img/${resp.flip}.png`;
 }
+
+
 // Flip multiple coins and show coin images in table as well as summary results
 // Enter number and press button to activate coin flip series
 async function multiFlip(number) {
@@ -40,4 +44,28 @@ async function multiFlip(number) {
   document.getElementById("multi-summary").innerText = `Summary: Heads-${headsVal}    Tails-${tailsVal}`;
   document.getElementById("multi-results").classList.remove("hidden");
 }
+
+
 // Guess a flip by clicking either heads or tails button
+async function guessFlip(call) {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ call: call })
+  };
+  const response = await fetch('http://localhost:5555/app/flip/call', requestOptions);
+  let resp = await response.json();
+  const flip = resp.flip;
+  const result = resp.result;
+  document.getElementById("guess-flip-result").src = `./assets/img/${flip}.png`;
+  document.getElementById("user-guess").innerText = `Your Guess: ${call}`;
+  const resultElem = document.getElementById("guess-win-lose");
+  if (result === "win") {
+    resultElem.innerText = `WIN`;
+    resultElem.className = "win";
+  } else {
+    resultElem.innerText = `LOSE`;
+    resultElem.className = 'lose';
+  }
+  document.getElementById("guess-results").classList.remove("hidden");
+}

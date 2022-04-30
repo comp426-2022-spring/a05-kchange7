@@ -46,7 +46,7 @@
     <div id="multi" class="hidden">
       <h2>Multi-Coin Flip</h2>
       <h4>Press the button below to flip many coins and see the result</h4>
-      <button id="flip-single" onclick="multiFlip(20)">Flip 20 Coins</button>
+      <button id="flip-multi" onclick="multiFlip(20)">Flip 20 Coins</button>
       <div id="multi-results" class="hidden">
         <h4>Results:</h4>
         <div class="graph">
@@ -58,6 +58,17 @@
     </div>
     <div id="guess" class="hidden">
       <h2>Guess a Flip</h2>
+      <h4>Press a button below to guess a coin flip and see the result</h4>
+      <div>
+        <button id="guess-heads" onclick="guessFlip('heads')">Heads</button>
+        <button id="guess-tails" onclick="guessFlip('tails')">Tails</button>
+      </div>
+      <div id="guess-results" class="hidden">
+        <h3 id="user-guess">Your Guess: </h3>
+        <h3>Result: </h3>
+        <img id="guess-flip-result" src="./assets/img/coin.png" class="bigcoin">
+        <h2 id="guess-win-lose" class="win">WIN </h2>
+      </div>
     </div>
 	<script src="main.js"></script>
   </body>

@@ -6,7 +6,7 @@ div.active {
   border: 5px solid red;
   padding-left: 15px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 div.graph {
@@ -35,6 +35,14 @@ div.tails {
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+h2.win {
+  color: black;
+}
+
+h2.lose {
+  color: red;
 }
 
 img.bigcoin {
