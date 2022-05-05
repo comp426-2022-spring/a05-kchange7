@@ -84,19 +84,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/
 ```
 
 #### Response body
 
 ```
-
+{"flip":"heads"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-VYm8Bk1/RW8RGhDXdTwBYk6lbGE"
+Date: Sat, 30 Apr 2022 23:12:01 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flips/:number/ (GET)
@@ -104,39 +111,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flips/20
 ```
 
 #### Response body
 
 ```
-
+{"raw":["heads","heads","tails","tails","tails","heads","tails","heads","tails""tails","tails","tails","heads","tails","heads","heads","tails","heads","heads","heads"],"summary":{"heads":10,"tails":10}}
 ```
 
 #### Response headers
 
 ```
-
-```
-
-### /app/flip/coin/ (GET)
-
-#### Request cURL
-
-```
-
-```
-
-#### Response body
-
-```
-
-```
-
-#### Response headers
-
-```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 202
+ETag: W/"ca-EzCz2NNcDCrWoqRO4A/fQO+pM6w"
+Date: Sat, 30 Apr 2022 23:12:34 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/call/:guess/ (GET)
@@ -144,19 +138,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/call/heads
 ```
 
 #### Response body
 
 ```
-
+{"call":"heads","flip":"tails","result":"lose"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 47
+ETag: W/"2f-7jHpBxeRlMwmX45a5nEiITPVllI"
+Date: Sat, 30 Apr 2022 23:15:22 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/call/ (POST)
@@ -218,39 +219,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/log/access
 ```
 
 #### Response body
 
 ```
-
+[{"id":1,"remoteaddr":"::1","remoteuser":null,"time":1651360790309,"method":"GET","url":"/app/flips/20","protocol":"http","httpversion":"1.1","secure":0,"status":200,"referer":null,"useragent":"curl/7.77.0"},{"id":2,"remoteaddr":"::1","remoteuser":null,"time":1651360793691,"method":"GET","url":"/app/flip/coin","protocol":"http","httpversion":"1.1","secure":0,"status":200,"referer":null,"useragent":"curl/7.77.0"},{"id":3,"remoteaddr":"::1","remoteuser":null,"time":1651360808781,"method":"GET","url":"/app/flip","protocol":"http","httpversion":"1.1","secure":0,"status":200,"referer":null,"useragent":"curl/7.77.0"},{"id":4,"remoteaddr":"::1","remoteuser":null,"time":1651360810680,"method":"GET","url":"/app/flip","protocol":"http","httpversion":"1.1","secure":0,"status":200,"referer":null,"useragent":"curl/7.77.0"},{"id":5,"remoteaddr":"::1","remoteuser":null,"time":1651360825793,"method":"GET","url":"/app/flip/call/heads","protocol":"http","httpversion":"1.1","secure":0,"status":200,"referer":null,"useragent":"curl/7.77.0"},{"id":6,"remoteaddr":"::1","remoteuser":null,"time":1651360839300,"method":"GET","url":"/app/log/access","protocol":"http","httpversion":"1.1","secure":0,"status":200,"referer":null,"useragent":"curl/7.77.0"}]
 ```
 
 #### Response headers
 
 ```
-
-```
-
-### /app/log/access/ (GET)
-
-#### Request cURL
-
-```
-
-```
-
-#### Response body
-
-```
-
-```
-
-#### Response headers
-
-```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 1455
+ETag: W/"5af-dPHW61eAGhBYbAIJAGGD4+H9Bz8"
+Date: Sat, 30 Apr 2022 23:21:26 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/log/error/ (GET)
